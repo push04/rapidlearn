@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Upload, CheckCircle, XCircle, Search, ScanLine, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

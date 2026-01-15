@@ -1,0 +1,3 @@
+﻿src/components/features/HyperLecturer.tsx(106,29): error TS2322: Type 'FC<VideoProps>' is not assignable to type 'LooseComponentType<Record<string, unknown>>'.
+  Type 'FunctionComponent<VideoProps>' is not assignable to type 'FunctionComponent<Record<string, unknown>>'.
+    Type 'Record<string, unknown>' is missing the following properties from type 'VideoProps': title, segments

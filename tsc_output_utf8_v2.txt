@@ -1,0 +1,6 @@
+﻿src/components/features/NeuronalMindMap.tsx(121,25): error TS1128: Declaration or statement expected.
+src/components/features/NeuronalMindMap.tsx(121,26): error TS1005: '}' expected.
+src/components/features/NeuronalMindMap.tsx(122,21): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/features/NeuronalMindMap.tsx(122,22): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/features/NeuronalMindMap.tsx(123,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/features/NeuronalMindMap.tsx(124,14): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?

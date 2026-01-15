@@ -32,7 +32,7 @@ export default function NeuronalMindMap({ documentId }: { documentId: string }) 
     const [nodes, setNodes] = useState<Node[]>([]);
     const [links, setLinks] = useState<Edge[]>([]);
     const [loading, setLoading] = useState(true);
-    const graphRef = useRef<any>();
+    const graphRef = useRef<any>(null);
 
     useEffect(() => {
         const fetchGraph = async () => {
@@ -123,11 +123,6 @@ export default function NeuronalMindMap({ documentId }: { documentId: string }) 
                             node,
                             3000
                         );
-                    }}
-                    nodeThreeObject={(node: any) => {
-                        // Optional: Custom text labels in 3D space
-                        // For simplicity, using default spheres, but could use SpriteText
-                        return null;
                     }}
                 />
             )}

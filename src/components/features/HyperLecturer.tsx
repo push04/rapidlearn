@@ -103,7 +103,7 @@ export default function HyperLecturer({ documentId, userId }: { documentId: stri
                 <div className="relative aspect-[9/16] max-h-[700px] mx-auto w-full max-w-sm bg-black rounded-3xl overflow-hidden border-4 border-gray-800 shadow-2xl">
                     {videoData ? (
                         <Player
-                            component={HyperVideoComposition}
+                            component={HyperVideoComposition as any}
                             inputProps={videoData}
                             durationInFrames={videoData.segments.reduce((acc, s) => acc + (s.duration * 30), 3 * 30)}
                             fps={30}
