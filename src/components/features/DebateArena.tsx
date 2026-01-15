@@ -24,7 +24,7 @@ export default function DebateArena({ documentId }: { documentId: string }) {
             documentId,
             mode: 'debate' // Triggers DEBATE_ADVERSARY system prompt
         }
-    });
+    } as any);
 
     const [input, setInput] = useState('');
     const isLoading = status === 'submitted' || status === 'streaming';
