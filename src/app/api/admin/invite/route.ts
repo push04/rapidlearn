@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     try {
         const cookieStore = await cookies();
         const adminSession = cookieStore.get('admin_session');
-        const supabase = createServerClient();
+        const supabase: any = createServerClient();
 
         let isAuthorized = false;
         let inviterId = null; // Admin is null
