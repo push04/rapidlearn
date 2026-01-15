@@ -47,7 +47,7 @@ export async function PUT(request: NextRequest) {
             return NextResponse.json({ error: 'Session ID required' }, { status: 400 });
         }
 
-        const supabase = createServerClient();
+        const supabase: any = createServerClient();
 
         // Record the answer
         await supabase.from('quiz_history').insert({
@@ -121,7 +121,7 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({ error: 'Session ID required' }, { status: 400 });
         }
 
-        const supabase = createServerClient();
+        const supabase: any = createServerClient();
 
         const { data: history, error } = await supabase
             .from('quiz_history')

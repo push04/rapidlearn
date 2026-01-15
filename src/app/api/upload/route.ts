@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'User ID required' }, { status: 400 });
         }
 
-        const supabase = createServerClient();
+        const supabase: any = createServerClient();
         const documentId = uuidv4();
         const fileName = file.name;
         const fileExtension = fileName.split('.').pop()?.toLowerCase();
@@ -120,7 +120,7 @@ export async function GET(request: NextRequest) {
             );
         }
 
-        const supabase = createServerClient();
+        const supabase: any = createServerClient();
 
         const { data: document, error } = await supabase
             .from('documents')
