@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useChat } from 'ai/react';
+import { useChat } from '@ai-sdk/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -16,11 +16,25 @@ const PERSONAS = [
 
 export default function GhostStudents({ documentId }: { documentId: string }) {
     const [selectedPersona, setSelectedPersona] = useState(PERSONAS[0]);
+    const [input, setInput] = useState('');
 
-    const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+    const { messages, sendMessage, status } = useChat({
         api: '/api/chat',
-        body: { mode: selectedPersona.id, documentContext: `Document ID: ${documentId}` } // In real app, pass actual context or ID for retrieval
+        body: { mode: selectedPersona.id, documentContext: `Document ID: ${documentId}` }
     });
+
+    const isLoading = status === 'submitted' || status === 'streaming';
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value);
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!input.trim()) return;
+        await sendMessage({ text: input });
+        setInput('');
+    };
 
     return (
         <div className="flex flex-col h-[600px] w-full bg-[#0a0a0f] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
@@ -58,7 +72,7 @@ export default function GhostStudents({ documentId }: { documentId: string }) {
                         </div>
                     ) : (
                         <div className="space-y-4">
-                            {messages.map((m) => (
+                            {messages.map((m: any) => (
                                 <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                     <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${m.role === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-white/10 text-gray-200 rounded-bl-none'}`}>
                                         <p className="leading-relaxed">{m.content}</p>
