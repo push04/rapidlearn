@@ -135,7 +135,7 @@ export async function GET(request: NextRequest) {
 
         // Calculate stats
         const total = history?.length || 0;
-        const correct = history?.filter((h) => h.is_correct).length || 0;
+        const correct = history?.filter((h: any) => h.is_correct).length || 0;
         const accuracy = total > 0 ? (correct / total) * 100 : 0;
 
         return NextResponse.json({
