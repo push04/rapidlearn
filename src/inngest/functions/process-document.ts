@@ -4,6 +4,16 @@ import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { chat, selectModel, SYSTEM_PROMPTS } from '@/lib/openrouter';
 // Force CommonJS require with any cast to avoid TS issues
 // eslint-disable-next-line @typescript-eslint/no-require-imports
+
+// POLYFILL: pdf-parse crashes if DOMMatrix is missing (Next.js build environment)
+if (typeof global.DOMMatrix === 'undefined') {
+    (global as any).DOMMatrix = class DOMMatrix {
+        constructor() { return this; }
+        translate() { return this; }
+        scale() { return this; }
+    };
+}
+
 const pdf: any = require('pdf-parse');
 
 // Document Processing Function
