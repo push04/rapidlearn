@@ -21,7 +21,7 @@ export default function GhostStudents({ documentId }: { documentId: string }) {
     const { messages, sendMessage, status } = useChat({
         api: '/api/chat',
         body: { mode: selectedPersona.id, documentContext: `Document ID: ${documentId}` }
-    });
+    } as any);
 
     const isLoading = status === 'submitted' || status === 'streaming';
 
