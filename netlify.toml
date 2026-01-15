@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[functions]
+  node_bundler = "esbuild"
+  directory = "netlify/functions"
+
+# Next.js on Netlify configuration
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Inngest webhook route
+[[redirects]]
+  from = "/api/inngest"
+  to = "/.netlify/functions/inngest"
+  status = 200
+
+# Environment variables (set in Netlify dashboard)
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Headers for CORS
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
