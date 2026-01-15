@@ -1,7 +1,11 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useChat } from 'ai/react';
+import { useChat, type Message } from '@ai-sdk/react';
+// ... (lines in between are fine, I will use multi_replace or separate replace calls if needed, but let's just do imports first then usage)
+// Wait, replace_file_content is for contiguous block.
+// I need to change line 4 AND line 63.
+// So I should use multi_replace_file_content.
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -60,7 +64,7 @@ export default function DebateArena({ documentId }: { documentId: string }) {
                         </div>
                     )}
 
-                    {messages.map((m) => (
+                    {messages.map((m: Message) => (
                         <motion.div
                             key={m.id}
                             initial={{ opacity: 0, y: 10 }}
