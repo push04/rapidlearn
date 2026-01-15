@@ -5,7 +5,7 @@ import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'; // Need to create/check these
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'; // Unused, replaced by SimpleSelect
 import { Calculator, Zap, Cpu, Activity, RotateCcw, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 
