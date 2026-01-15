@@ -7,7 +7,7 @@ export const runtime = 'edge';
 export async function POST(req: NextRequest) {
     try {
         const { documentId } = await req.json();
-        const supabase = createServerClient();
+        const supabase: any = createServerClient();
 
         // 1. Fetch a random chunk from the current document to use as a "probe"
         // In a real app, we'd use the user's current viewport or cursor position
