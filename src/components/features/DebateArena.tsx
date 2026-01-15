@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useChat } from '@ai-sdk/react';
-import { type Message } from 'ai';
+import { type UIMessage } from 'ai';
 // ... (lines in between are fine, I will use multi_replace or separate replace calls if needed, but let's just do imports first then usage)
 // Wait, replace_file_content is for contiguous block.
 // I need to change line 4 AND line 63.
@@ -65,7 +65,7 @@ export default function DebateArena({ documentId }: { documentId: string }) {
                         </div>
                     )}
 
-                    {messages.map((m: Message) => (
+                    {messages.map((m: UIMessage) => (
                         <motion.div
                             key={m.id}
                             initial={{ opacity: 0, y: 10 }}
