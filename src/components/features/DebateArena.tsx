@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useChat, type Message } from '@ai-sdk/react';
+import { useChat } from '@ai-sdk/react';
+import { type Message } from 'ai';
 // ... (lines in between are fine, I will use multi_replace or separate replace calls if needed, but let's just do imports first then usage)
 // Wait, replace_file_content is for contiguous block.
 // I need to change line 4 AND line 63.
