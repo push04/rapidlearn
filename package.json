@@ -27,6 +27,7 @@
     "mermaid": "^11.12.2",
     "next": "16.1.2",
     "openai": "^6.16.0",
+    "pdf-parse": "^2.4.5",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-force-graph-3d": "^1.29.0",
