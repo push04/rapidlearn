@@ -18,13 +18,28 @@ export default function DebateArena({ documentId }: { documentId: string }) {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     // Custom hook for Debate Mode
-    const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+    const { messages, sendMessage, status } = useChat({
         api: '/api/chat',
         body: {
             documentId,
             mode: 'debate' // Triggers DEBATE_ADVERSARY system prompt
         }
     });
+
+    const [input, setInput] = useState('');
+    const isLoading = status === 'submitted' || status === 'streaming';
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value);
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!input.trim()) return;
+
+        await sendMessage({ text: input });
+        setInput('');
+    };
 
     useEffect(() => {
         if (scrollRef.current) {
